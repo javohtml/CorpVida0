@@ -132,5 +132,4 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <feature name="http://plugins.phonegap.com/ChildBrowser/1.0.1" />
 </widget>
