@@ -31,33 +31,7 @@
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-<script type="text/javascript">
-function onDeviceReady() {
 
-        var root = this;
-        cb = window.plugins.childBrowser;
-
-        if(cb != null) {
-        cb.onLocationChange = function(loc){ root.locChanged(loc); };
-        cb.onClose = function(){root.onCloseBrowser(); };
-        cb.onOpenExternal = function(){root.onOpenExternal(); };
-        cb.showWebPage("http://www.corpvida.cl/mercado_fichas/descarga/accionario_julio_2015.pdf");
-
-        }
-    }
-
-    function onCloseBrowser() {
-        console.log("onCloseBrowser!");
-    }
-
-    function locChanged(loc) {
-        console.log("locChanged!");
-    }
-
-    function onOpenExternal() {
-        alert("onOpenExternal!");
-    }
-</script>
 </head>
 <body>
 <div id="wrapper">
@@ -92,7 +66,7 @@ function onDeviceReady() {
 							</p>
 							<p><b>Horizonte Inversión:</b> Largo Plazo</p>
 							<p><b>Tolerancia al Riesgo: </b>Alta</p>
-							<iframe id="fred" style="height:20em;width:100%;" title="Accionista" src="pdf/accionario_julio_2015.pdf" frameborder="1" scrolling="auto"></iframe>
+							<iframe width="200" height="200" src="https://www.youtube.com/embed/9NiMDN1fxno" frameborder="0" allowfullscreen></iframe>
 							<a href="pdf/accionario_julio_2015.pdf" target="a_blank">Ver PDF</a>
 					</article>
 				</div>
