@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CorpVidApp</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="http://bootstraptaste.com" />
+<!-- css -->
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
+<link href="css/jcarousel.css" rel="stylesheet" />
+<link href="css/flexslider.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+<style>
+	.staticaBar{
+		    background-size: 194px 22px;
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    z-index: 1000;
+		    margin: 0pt auto;
+	}
+</style>
+
+<!-- Theme skin -->
+<link href="skins/default.css" rel="stylesheet" />
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div id="wrapper">
+	<!-- start header -->
+	<header class="staticaBar">
+        <div class="navbar navbar-default navbar-static-top" style="background-color: #7BC142;">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html"><img src="logo.png"></a>
+                </div>
+            </div>
+        </div>
+	</header>
+	<!-- end header -->
+	<section id="content" style="margin-top: 3em; height:100%;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<article>
+						<div class="post-image">
+							<div class="post-heading">
+								<h1><a href="#">Credito de Consumo Pensionados</a> </h1>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<form>
+						<div class="form-group">
+							<label>Edad Actual</label>
+							<input class="form-control" name="edad" id="edad" placeholder="Ejemplo: 34" type="number" required min="2">
+						</div>
+						<div class="form-group">
+							<label>Sexo : </label>
+							<label class="radio-inline">
+								<input type="radio" name="sexo" id="sexo1" value="m" checked="">Masculino
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="sexo" id="sexo2" value="f">Femenino
+							</label>
+						</div>
+						<div class="form-group">
+							<label>Fondo Inicial</label>
+							<input class="form-control" name="fondoinicial" id="fondoinicial" placeholder="Ejemplo: 30000000" type="number" required min="0">
+						</div>
+						<div class="form-group">
+							<label>Valor Cuota Mensual</label>
+							<input class="form-control" name="vcm" id="vcm" placeholder="Ejemplo: 6000000" type="number" required min="0">
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-default" onclick="calcular()">Calcular</button>
+							<button type="reset" class="btn btn-default">Reset Button</button>
+						</div>
+						<div id="results">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+<!-- javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script>
+var fijo 				= 6000000;	// Valor fijo
+var edadJuvilacion 		= 0; 		//60 mujer 65 hombre
+var valorCuotaMensual 	= 0;		//Cuota mensual 
+var fondoInicial		= 0;		//Fondo inicial
+var edadActual			= 0;		//Edad Actual
+var sueldoMensual		= 0;		//Sueldo necesario
+var valorUF 			= 25223;	//Valor actual UF
+var operation 			= 0;		//Operadores
+var operatior 			= 0;		//Operadores
+function calcular(){
+	if(document.getElementById("sexo2").checked)
+		edadJuvilacion = 60;
+	else
+		edadJuvilacion = 65;
+
+	valorCuotaMensual 	= document.getElementById("vcm").value;
+	edadActual 			= document.getElementById("edad").value;
+	fondoInicial 		= document.getElementById("fondoinicial").value;
+
+	operatior = (((1000000*valorCuotaMensual)/((edadJuvilacion-edadActual)*(18*valorUF)))-(fondoInicial/(108*(edadJuvilacion-edadActual))))*100;
+	document.getElementById("results").innerHTML = '<h4>Resultado Estimado: ' + operatior +'</h4>';
+}
+
+</script>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/jquery.fancybox-media.js"></script>
+<script src="js/google-code-prettify/prettify.js"></script>
+<script src="js/portfolio/jquery.quicksand.js"></script>
+<script src="js/portfolio/setting.js"></script>
+<script src="js/jquery.flexslider.js"></script>
+<script src="js/animate.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>
